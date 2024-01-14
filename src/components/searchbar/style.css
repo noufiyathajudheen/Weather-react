@@ -11,3 +11,7 @@ input {
 input::placeholder {
   color: #9399a2;
 }
+
+form {
+  width: 100%;
+}

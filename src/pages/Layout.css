@@ -10,3 +10,14 @@
   gap: 16px;
   width: 100%;
 }
+
+.top-section {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+.empty {
+  width: 40%;
+}

@@ -9,7 +9,10 @@ const Layout = ({ query, setQuery }) => {
     <div className="container">
       <Sidebar />
       <div className="section">
-        <Searchbar query={query} setQuery={setQuery} />
+        <div className="top-section">
+          <Searchbar query={query} setQuery={setQuery} />
+          <div className="empty"></div>
+        </div>
         <Outlet />
       </div>
     </div>

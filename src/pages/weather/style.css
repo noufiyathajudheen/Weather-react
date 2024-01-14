@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
+}
+
+.weather-container {
+  display: flex;
+  gap: 16px;
 }
 
 .loader-container {
@@ -35,11 +41,13 @@
 .location-name {
   font-size: 36px;
   font-weight: 700;
+  text-shadow: 1px 0;
 }
 
 .temp {
   font-size: 50px;
   font-weight: 900;
+  text-shadow: 1px 0;
 }
 
 .condition {
@@ -131,5 +139,52 @@
   font-size: 30px;
   font-weight: 900;
   color: #c4cad3ff;
+  text-shadow: 1px 0;
   padding-left: 16px;
+}
+
+.seven-day-forecast {
+  width: 40%;
+  background-color: #202b3b;
+  padding: 16px 32px;
+  color: #9399a2;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.seven-day-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.seven-day-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.seven-day-condition {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.text-bold {
+  font-weight: 700;
+  color: #c4cad3ff;
+  width: 80px;
+}
+
+.horizontal-line {
+  border-bottom: 1px solid rgb(53, 69, 94);
+  width: 100%;
+  border-radius: 2px;
+}
+
+.horizontal-line:last-child {
+  display: none;
 }

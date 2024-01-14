@@ -10,10 +10,10 @@ const getCurrentWeather = async ({ query }) => {
     .catch((error) => console.log(error));
 };
 
-const getTodayForecast = async ({ query }) => {
+const getForecast = async ({ query, days }) => {
   return await axios
     .get(
-      `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=1&aqi=no&alerts=no`
+      `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=${days}&aqi=no&alerts=no`
     )
     .then((response) => {
       return response.data;
@@ -21,4 +21,4 @@ const getTodayForecast = async ({ query }) => {
     .catch((error) => console.log(error));
 };
 
-export { getCurrentWeather, getTodayForecast };
+export { getCurrentWeather, getForecast };
