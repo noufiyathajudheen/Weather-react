@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  gap: 16px;
+  color: #f0f1f1ff;
+}
+
+.container .section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}

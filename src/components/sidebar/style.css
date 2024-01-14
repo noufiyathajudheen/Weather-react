@@ -1,0 +1,24 @@
+aside {
+  background-color: #202b3b;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 16px;
+  gap: 16px;
+  border-radius: 16px;
+  height: 95vh;
+  top: 16px;
+  position: sticky;
+}
+
+a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #9399a2;
+  transition: 0.25s ease-in-out color;
+}
+
+a.active {
+  color: #f0f1f1ff;
+}
