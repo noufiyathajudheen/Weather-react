@@ -59,7 +59,7 @@ const Weather = ({ query, setQuery }) => {
         <div className="section-today-forecast">
           <h4>TODAY'S FORECAST</h4>
           <div className="forecast-container">
-            {todayForecast.map((item) => (
+            {todayForecast?.map((item) => (
               <Fragment key={item?.time}>
                 <div className="forecast">
                   <span className="forecast-time">
@@ -120,7 +120,7 @@ const Weather = ({ query, setQuery }) => {
       <div className="seven-day-forecast">
         <h4>7-DAY FORECAST</h4>
         <div className="seven-day-container">
-          {sevenDayForecast.map((item) => (
+          {sevenDayForecast?.map((item) => (
             <Fragment>
               <div className="seven-day-item" key={item.date}>
                 <span>{getAbbreviatedWeekday(item?.date)}</span>
