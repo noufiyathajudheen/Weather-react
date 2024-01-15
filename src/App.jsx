@@ -6,15 +6,32 @@ import Weather from "./pages/weather";
 import { useState } from "react";
 
 function App() {
+  const [unit, setUnit] = useState("c");
   const [query, setQuery] = useState("Palakkad");
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout query={query} setQuery={setQuery} />}>
+        <Route
+          element={
+            <Layout
+              query={query}
+              setQuery={setQuery}
+              unit={unit}
+              setUnit={setUnit}
+            />
+          }
+        >
           <Route
             path="/"
-            element={<Weather query={query} setQuery={setQuery} />}
+            element={
+              <Weather
+                query={query}
+                setQuery={setQuery}
+                unit={unit}
+                setUnit={setUnit}
+              />
+            }
           />
           <Route path="/cities" element={<Cities />} />
         </Route>

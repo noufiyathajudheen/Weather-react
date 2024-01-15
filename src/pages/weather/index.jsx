@@ -7,7 +7,7 @@ import {
 } from "../../utils/utils";
 import { Droplets, Sun, Thermometer, Wind } from "lucide-react";
 
-const Weather = ({ query, setQuery }) => {
+const Weather = ({ query, unit, setUnit }) => {
   const [currentData, setCurrentData] = useState({});
   const [todayForecast, setTodayForecast] = useState([]);
   const [sevenDayForecast, setSevenDayForecast] = useState([]);
@@ -35,8 +35,10 @@ const Weather = ({ query, setQuery }) => {
       setSevenDayForecast(data?.forecast?.forecastday)
     );
   }, [query]);
-
-  console.log(sevenDayForecast);
+  const temperature = `temp_${unit}`;
+  const feelsLikeTemp = `feelslike_${unit}`;
+  const maxTemp = `maxtemp_${unit}`;
+  const minTemp = `mintemp_${unit}`;
 
   return (
     <div className="weather-container">
@@ -49,7 +51,9 @@ const Weather = ({ query, setQuery }) => {
               </span>
               <span className="condition">Chance of rain: {chanceOfRain}%</span>
             </div>
-            <span className="temp">{currentData?.current?.temp_c}°</span>
+            <span className="temp">
+              {currentData.current ? currentData?.current[temperature] : 0}°
+            </span>
           </div>
           <img
             className="condition-icon"
@@ -70,7 +74,7 @@ const Weather = ({ query, setQuery }) => {
                     src={item?.condition?.icon}
                     alt=""
                   />
-                  <span className="forecast-temp">{item?.temp_c}°</span>
+                  <span className="forecast-temp">{item[temperature]}°</span>
                 </div>
                 <div className="line"></div>
               </Fragment>
@@ -86,7 +90,7 @@ const Weather = ({ query, setQuery }) => {
                 <span>Real feel</span>
               </div>
               <span className="air-condition-value">
-                {currentData?.current?.feelslike_c}°
+                {currentData?.current && currentData?.current[feelsLikeTemp]}°
               </span>
             </div>
             <div className="air-condition">
@@ -121,7 +125,7 @@ const Weather = ({ query, setQuery }) => {
         <h4>7-DAY FORECAST</h4>
         <div className="seven-day-container">
           {sevenDayForecast?.map((item) => (
-            <Fragment>
+            <Fragment key={item?.date}>
               <div className="seven-day-item" key={item.date}>
                 <span>{getAbbreviatedWeekday(item?.date)}</span>
                 <div className="seven-day-condition">
@@ -131,8 +135,8 @@ const Weather = ({ query, setQuery }) => {
                   </span>
                 </div>
                 <p>
-                  <span className="text-bold">{item?.day?.maxtemp_c}</span> /
-                  <span>{item?.day?.mintemp_c}</span>
+                  <span className="text-bold">{item?.day[maxTemp]}</span> /
+                  <span>{item?.day[minTemp]}</span>
                 </p>
               </div>
               <div className="horizontal-line"></div>
