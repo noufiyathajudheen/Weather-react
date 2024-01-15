@@ -6,7 +6,9 @@ import Weather from "./pages/weather";
 import { useState } from "react";
 
 function App() {
-  const [unit, setUnit] = useState("c");
+  const [unit, setUnit] = useState(
+    localStorage.getItem("unit") ? localStorage.getItem("unit") : "c"
+  );
   const [query, setQuery] = useState("Palakkad");
 
   return (

@@ -13,13 +13,19 @@ const Layout = ({ query, setQuery, unit, setUnit }) => {
           <Searchbar query={query} setQuery={setQuery} />
           <div className="metric-option">
             <div
-              onClick={() => setUnit("c")}
+              onClick={() => {
+                setUnit("c");
+                localStorage.setItem("unit", "c");
+              }}
               className={`option ${unit === "c" ? "active-option" : ""}`}
             >
               <span>Celsius</span>
             </div>
             <div
-              onClick={() => setUnit("f")}
+              onClick={() => {
+                setUnit("f");
+                localStorage.setItem("unit", "f");
+              }}
               className={`option ${unit === "f" ? "active-option" : ""}`}
             >
               <span>Fahrenheit</span>
